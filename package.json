@@ -1,0 +1,27 @@
+{
+  "name": "setofskills.com",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Source code for https://setofskills.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Enselic/setofskills.com.git"
+  },
+  "author": "Martin Nordholts",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Enselic/setofskills.com/issues"
+  },
+  "homepage": "https://github.com/Enselic/setofskills.com#readme",
+  "devDependencies": {
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.0"
+  },
+  "dependencies": {
+    "hexo-cli": "^1.0.2"
+  }
+}
