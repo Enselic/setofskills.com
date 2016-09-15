@@ -7,16 +7,10 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <%- open_graph({twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
-  <% if (theme.rss){ %>
-    <link rel="alternate" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
-  <% } %>
-  <% if (theme.favicon){ %>
-    <link rel="icon" href="<%- theme.favicon %>">
-  <% } %>
-  <% if (config.highlight.enable){ %>
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <% } %>
+        <!-- TODO link rel="alternate" type="application/rss+xml" title="{{site.name | xml_escape }}" href="{{site.url}}/feed.xml"-->
+
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.min.css?__inline=true">
+
   <%- css('css/style') %>
   <%- partial('google-analytics') %>
 </head>
