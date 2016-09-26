@@ -21,6 +21,12 @@
   },
   "homepage": "https://github.com/Enselic/setofskills.com#readme",
   "dependencies": {
+    "browser-sync": "^2.16.0",
+    "gulp": "^3.9.1",
+    "gulp-filter": "^4.0.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-load-plugins": "^1.3.0",
+    "gulp-sass": "^2.3.2",
     "hexo": "^3.2.0",
     "hexo-cli": "^1.0.2",
     "hexo-filter-asset-inline": "^1.1.1",
