@@ -1,0 +1,19 @@
+---
+layout: post
+title: Nightly GIMP, GEGL, babl tarball builds
+date: '2010-09-30T23:59:00.002+02:00'
+author: Martin Nordholts
+tags: [gimp-development, continuous-integration]
+modified_time: '2010-10-04T07:53:01.813+02:00'
+blogger_id: tag:blogger.com,1999:blog-8217891901168839293.post-8620886337708036625
+blogger_orig_url: http://www.chromecode.com/2009/10/nightly-gimp-gegl-babl-tarball-builds.html
+cached_comment_count: 25
+---
+
+<p>I have spent the last few weeks working on setting up nightly tarball builds of GIMP, GEGL and babl. Today I am glad to announce that this is up and running. This means that from now on you don't have to wait for development snapshots or build from git in order to test the bleeding edge GIMP code. Nightly tarballs can be found at:<br /><a href="ftp://gimptest.flamingtext.com/pub/nightly-tarballs">ftp://gimptest.flamingtext.com/pub/nightly-tarballs/</a></p>
+
+<p>It also means that the work I have put on infrastructure and authoring of test cases is more valuable now that the tests are continously run, and that we have a better GIMP development setting where regressions can be discovered as early as possible and thus also more easily fixed.</p>
+
+<p>A natural extension to this is to also do nightly builds of binaries, in particular for Windows for which it is quite inconvenient to build from source. But that will be a later project...</p>
+
+<p>A big thanks to Cameron Gregory at <a href="http://flamingtext.com/">FlamingText.com</a> who donated the server for the nightly builds.</p>

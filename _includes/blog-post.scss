@@ -1,0 +1,83 @@
+/*
+
+for f in _scss/*; do sass $f --style compressed > _includes/$(basename ${f%%.*}.min.css); done
+
+*/
+
+$blog-content-line-height: 28.5714286px; /* bootstrap font-size-base * line-height-base */
+
+.blog-post {
+    margin-bottom: 50px;
+}
+
+.blog-post header {
+    margin-bottom: 15px;
+}
+
+.blog-post header h2 {
+    margin-bottom: 0;
+}
+
+.blog-post .author-and-date {
+    color: #666;
+    margin: 0;
+}
+
+.blog-post .content {
+    position: relative;
+    overflow: hidden;
+}
+
+html.js .fade-last-line:after {
+    display: block;
+    content: "";
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+    height: $blog-content-line-height;
+    right: 0%;
+    z-index: 999;
+
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#272822+0,272822+100&0+0,0+40,1+60,1+100 */
+    background: -moz-linear-gradient(top, rgba(39,40,34,0) 0%, rgba(39,40,34,0) 40%, rgba(39,40,34,1) 60%, rgba(39,40,34,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(39,40,34,0) 0%,rgba(39,40,34,0) 40%,rgba(39,40,34,1) 60%,rgba(39,40,34,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(39,40,34,0) 0%,rgba(39,40,34,0) 40%,rgba(39,40,34,1) 60%,rgba(39,40,34,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00272822', endColorstr='#272822',GradientType=0 ); /* IE6-9 */
+}
+
+.blog-post.front-page img {
+    display: block;
+    float: left;
+    overflow: hidden;
+
+    width: 40%;
+    height: auto;
+
+    margin-right: $blog-content-line-height * 0.5;
+    margin-bottom: 0;
+}
+
+.blog-post.full-page img {
+    margin-bottom: 11px;
+}
+
+.back-link {
+    padding-top: 10px;
+    clear: both;
+}
+
+.google-tag-manager-read-more-button {
+    cursor: pointer;
+    padding-right: 30px;
+}
+
+html.js .blog-post .collapsed {
+    height: $blog-content-line-height * 4;
+}
+
+#disqus_thread {
+    margin: 25px 0;
+    padding: 15px;
+    background: #444;
+    border-radius: 3px;
+}

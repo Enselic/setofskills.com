@@ -1,0 +1,121 @@
+/*
+
+for f in _scss/*; do sass $f --style compressed > _includes/$(basename ${f%%.*}.min.css); done
+
+*/
+aside.tags {
+    margin-top: 15px;
+}
+
+html.js .posts-by-tag .post-list {
+    display: none;
+}
+
+.tag {
+    display: inline-block;
+    margin: 7px 0;
+    padding: 8px 20px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+
+    background: lighten(#e7dc6c, 3%);
+    border-radius: 3px;
+
+    font-family: "Lucida Console", Monaco, monospace, sans-serif;
+    font-weight: bold;
+    white-space: nowrap;    
+
+    transition: background 0.4s;
+}
+
+.tag-container.expanded {
+    background: #333;
+}
+
+.tag-container.expanded .tag-count {
+    display: none;
+}
+
+.tag-container {
+    background: transparent;
+    transition: background 0.4s;
+    border-radius: 2px;
+}
+
+.post-list {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.post-list li {
+    /* Using margin makes slideToggle() animation buggy */
+    padding-bottom: 15px;
+}
+
+.posts-by-year {
+    margin-top: 45px;
+}
+
+.posts-by-tag h6 {
+    color: green;
+    margin: 0 0 8px 0;
+}
+
+.tag:hover {
+    color: #333;
+    background: white;
+}
+
+.tags-in-post .tag:hover {
+    color: #333;
+    cursor: auto;
+    background: lighten(#e7dc6c, 3%);
+}
+
+.tags h6 {
+    color: #ccc;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.posts-by-year h3 {
+    margin: 0;
+    color: white;
+}
+
+.posts-by-year h6 {
+    margin: 0;
+    position: relative;
+    top: 25px;
+}
+
+.tags-in-post .tag {
+    float: left;
+    margin-left: 15px;
+}
+
+.tags-in-post h6 {
+    margin: 0 0 0 15px;
+    color: #ccc;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+
+@mixin escalating-tag-sizes($base, $step) {
+    /* Default to a big size so we don't have have to define classes for all ints > 0 */
+    .tag {
+        font-size: $base + 10 * $step;
+    }
+    @for $i from 0 through 10 {
+        .tag[data-tag-count="#{$i}"] {
+            font-size: $base + $i * $step;
+        }
+    }
+}
+
+@include escalating-tag-sizes(14px, 0.5px);
+
+@media (min-width : 992px) {
+    @include escalating-tag-sizes(18px, 1px);
+}

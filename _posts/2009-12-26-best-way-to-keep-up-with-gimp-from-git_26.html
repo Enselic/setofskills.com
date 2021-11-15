@@ -1,0 +1,17 @@
+---
+layout: post
+title: Best way to keep up with GIMP from git
+date: '2009-12-26T17:42:00.010+01:00'
+author: Martin Nordholts
+tags: [gimp-development]
+modified_time: '2011-04-02T15:53:56.565+02:00'
+blogger_id: tag:blogger.com,1999:blog-8217891901168839293.post-7308668013213376721
+blogger_orig_url: http://www.chromecode.com/2009/12/best-way-to-keep-up-with-gimp-from-git_26.html
+cached_comment_count: 21
+---
+
+<p>The more people that use the latest GIMP code from git the better. It keeps the required effort to contribute code upstreams small, which in turn increases the likelihood of upstream contributions, and it makes bugs more vulnerable to early discovery which minimizes their impact.</p>
+
+<p>However, keeping up with GIMP from git means extra work compared to using prebuilt packages. Unless you know of an easy way you might not withstand it. What follows is a description of how I do it, which is almost effortless once setup. I assume you know how to install necessary dependencies (note you can use the method I describe for the key dependencies, including babl, GLib, GEGL and GTK+), what "the install prefix" means, and that you run Linux. The approach I use differs in two principal way compared to the many guides found on the net:<ol><li>I use autoconf's config.site feature instead of setting up environment variables manually</li><li>I install in my home directory</li></ol>Making use of config.site nullifies the need to manually manage environment variables, and installing in the home directory makes it easy to tinker with an installation since you don't need to be root. So, put this in <code>$PREFIX/share/config.site</code> where <code>$PREFIX</code> is in your home directory such as <code>PREFIX=/home/martin/gimp-git</code>, either manually or using this <a href="/gimp/install-config-site.sh">script</a>:<pre>export PATH="$PREFIX/bin:$PATH"<br />export PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig:$PKG_CONFIG_PATH"<br />export LD_LIBRARY_PATH="$PREFIX/lib:$LD_LIBRARY_PATH"<br />export ACLOCAL_FLAGS="-I $PREFIX/share/aclocal $ACLOCAL_FLAGS"<br />export XDG_DATA_DIRS="$PREFIX/share:$XDG_DATA_DIRS"</pre>Then, assuming you have all the dependencies, you build GIMP the first time with:<pre><br />git clone git://git.gnome.org/gimp<br />cd gimp<br />source $PREFIX/share/config.site<br />./autogen.sh --prefix=$PREFIX<br />make<br />make install<br /></pre>and then to get updated with the latest changes from the constantly moving code base you regularly do<pre>git pull --rebase<br />source $PREFIX/share/config.site<br />make<br />make install<br /></pre>Note that the latter works without requiring any environment variables to be set since configure will source config.site. And because autogen.sh passes --enable-maintainer-mode to configure, it will also work when Makefile.am's or configure.ac are changed. In those rare occasions where things break, just run <code>git clean -xdf</code> which removes all non-version-controlled files so that you can start over from <code>autogen.sh</code>.</p>
+
+<p>The above approach works for as good as all GNOME projects, including GLib, babl, GEGL and GTK+. This makes it easy to adapt to GIMP's build requirements of these and other libraries even if your distro doesn't meet them. Let me know if you have problems!</p>

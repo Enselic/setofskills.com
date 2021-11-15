@@ -1,0 +1,19 @@
+/*
+
+for f in _scss/*; do sass $f --style compressed > _includes/$(basename ${f%%.*}.min.css); done
+
+*/
+
+html.js .javascript-disabled-warning {
+    display: none;
+}
+
+.javascript-disabled-warning span {
+    background: #49483e;
+}
+
+img[data-original] {
+    display: block;
+    max-width: 100%;
+    height: auto;	
+}

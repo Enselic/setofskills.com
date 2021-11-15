@@ -1,0 +1,124 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>{{ page.title }}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="alternate" type="application/rss+xml" title="{{site.name | xml_escape }}" href="{{site.url}}/feed.xml">
+
+        <style>
+        {% include bootstrap/css/bootstrap.min.css %}
+        {% capture to_scssify %}
+            {% include logo.scss %}
+            {% include nav.scss %}
+            {% include tags-and-years.scss %}
+            {% include global.scss %}
+            {% include blog-post.scss %}
+        {% endcapture %}
+        {{ to_scssify | scssify }}
+        </style>
+    </head>
+    <body>
+        <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PNGRF2"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PNGRF2');</script>
+        <!-- End Google Tag Manager -->
+
+        <!-- From http://www.paulirish.com/2009/avoiding-the-fouc-v3/ -->
+        <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+
+        <!--[if lt IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="container">
+            <section class="row javascript-disabled-warning text-center">
+                <span><strong>You have disabled JavsScript.</strong> <br/>
+                This is supported, but website usability and funness are reduced.</span>
+            </section>
+
+            <header class="row text-center">
+                <div class="logo-container">
+                    <img src="/img/diamond-small.png"/>
+                    <img src="/img/diamond-medium.png"/>
+                    <img src="/img/diamond-large.png"/>
+                </div>
+                <br class="visible-xs"/>
+                <span class="logo-text"><span>S</span><span>e</span><span>t</span><span class="space"> </span><span>o</span><span>f</span><span class="space"> </span><span>S</span><span>k</span><span>i</span><span>l</span><span>l</span><span>s</span></span>
+            </header>
+
+            <nav class="row text-center">
+{% assign nav_pages = "Blog:/,Projects:/projects,About:/about" | split: "," %}
+{% for nav_page in nav_pages %}
+    {% assign nav_parts = nav_page | split: ":" %}
+    {% assign nav_title = nav_parts[0] %}
+    {% assign nav_url = nav_parts[1] %}
+    {% assign extra_class = "" %}
+    {% if page.nav == nav_title %}
+        {% assign extra_class = "active" %}
+    {% endif %}
+                <span class="nav-entry {{ extra_class }}"><a href="{{ nav_url }}">{{ nav_title }}</a></span>
+{% endfor %}
+            </nav>
+
+            <div class="row">
+                <section class="col-xs-12 col-sm-7 col-lg-8">
+
+                    {{ content }}
+
+                </section>
+
+                <aside class="col-xs-12 col-sm-5 col-lg-4 tags">
+
+                    <section class="posts-by-tag">
+                        <h6>posts by tag</h6>
+{% for tag_with_count in site.data.tags_ordered_by_count %}
+    {% assign tagName = tag_with_count[0] %}
+    {% assign tagCount = tag_with_count[1] %}
+    {% assign tagPosts = site.tags[tagName] %}
+                        <div class="tag-container">
+    {% include tag.html tagName=tagName tagCount=tagCount %}
+                            <ul class="h5 post-list">
+    {% for post in tagPosts %}
+                                <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+                            </ul>
+                        </div>
+{% endfor %}
+                    </section>
+
+                    <section class="posts-by-year">
+                        <h6>posts by year</h6>
+{% for entry in site.data.posts_by_year %}
+    {% assign postYear = entry[0] %}
+    {% assign postsThisYear = entry[1] %}
+    {% assign posts = entry[2] %}
+                        <div class="year-container">
+                            <h3>{{postYear}}</h3> 
+                            <ul class="h5 post-list">
+    {% for post in posts %}
+                                <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+                            </ul>
+                        </div>
+{% endfor %}
+                    </section>
+                </aside>
+            </div>
+            
+        </div>
+
+        <script async data-main="/js/main-build-2016-02-18_0945.js" src="/js/require-2.1.22.min.js"></script>
+{% if page.has_disqus_comment_count %}
+        <script async id="dsq-count-scr" src="//setofskills-com.disqus.com/count.js"></script>
+{% endif %}
+    </body>
+</html>

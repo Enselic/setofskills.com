@@ -1,0 +1,140 @@
+/*
+
+for f in _scss/*; do sass $f --style compressed > _includes/$(basename ${f%%.*}.min.css); done
+
+*/
+
+$logo-reference-width: 290px;
+
+@function logo-scale($logo-width) {
+  @return $logo-width / $logo-reference-width;
+}
+
+@mixin diamond-large($logo-width) {
+    left: logo-scale($logo-width) * 70px;
+    top: logo-scale($logo-width) * -170px;
+    width: logo-scale($logo-width) * 175px;
+    height: logo-scale($logo-width) * 170px;
+}
+
+@mixin diamond-medium($logo-width) {
+    left: 0px;
+    top: logo-scale($logo-width) * -180px;
+    width: logo-scale($logo-width) * 130px;
+    height: logo-scale($logo-width) * 125px;
+}
+
+@mixin diamond-small($logo-width) {
+    left: logo-scale($logo-width) * 190px;
+    top: logo-scale($logo-width) * -190px;
+    width: logo-scale($logo-width) * 90px;
+    height: logo-scale($logo-width) * 87px;
+}
+
+@mixin glimmerStarter($start-delay) {
+    animation-name: glimmer;
+    animation-delay: $start-delay;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-duration: 0.4s;        
+}
+
+$glimmer-start-delay: 1s;
+@mixin scalable-logo-graphics($logo-width) {
+    img[src="/img/diamond-large.png"] {
+        @include diamond-large($logo-width);
+        @include glimmerStarter($glimmer-start-delay + 0.15s);
+    }
+    img[src="/img/diamond-medium.png"] {
+        @include diamond-medium($logo-width);
+        @include glimmerStarter($glimmer-start-delay);
+    }
+    img[src="/img/diamond-small.png"] {
+        @include diamond-small($logo-width);
+        @include glimmerStarter($glimmer-start-delay + 0.3s);
+    }
+    .logo-container {
+        width: $logo-width;
+        margin-top: logo-scale($logo-width) * 200px;
+        margin-right: logo-scale($logo-width) * -30px;
+    }
+    .logo-text .space {
+        font-size: logo-scale($logo-width) * 40px;
+    }
+}
+
+/* For when the text is to the right of the logo */
+@mixin scalable-logo-text($logo-width) {
+    .logo-text {
+        top: logo-scale($logo-width) * -50px;
+        font-size: logo-scale($logo-width) * 70px;
+    }
+}
+
+/* For when the text is to the right of the logo */
+@mixin scalable-logo($logo-width) {
+    @include scalable-logo-graphics($logo-width);
+    @include scalable-logo-text($logo-width);
+}
+
+@keyframes glimmer {
+    0% {
+        -webkit-filter: brightness(1.0);
+        filter: brightness(1.0);
+    }
+    50% {
+        -webkit-filter: brightness(1.7);
+        filter: brightness(1.7);
+    }
+    100% {
+        -webkit-filter: brightness(1.0);
+        filter: brightness(1.0);
+    }
+}
+
+
+.logo-container {
+    position: relative;
+    display: inline-block;
+    margin-top: 200px;
+    margin-right: -30px;
+}
+
+.logo-container > img {
+    position: absolute;
+}
+
+@include scalable-logo-graphics(200px);
+
+.logo-text {
+    position: relative;
+    font-family: "Courier New", Courier, monospace;
+    top: 0px;
+    font-size: 40px;
+    font-weight: 900;
+}
+
+/* between col-xs and col-sm */
+@media (min-width : 540px) {
+    @include scalable-logo(300px);
+    .logo-text {
+        top: 0px;
+        font-size: 60px;
+    }
+}
+
+/* col-sm */
+@media (min-width : 768px) {
+    @include scalable-logo(240px);
+}
+
+
+/* col-md */
+@media (min-width : 992px) {
+    @include scalable-logo(270px);
+}
+
+/* col-lg */
+@media (min-width : 1200px) {
+    @include scalable-logo(290px);
+}

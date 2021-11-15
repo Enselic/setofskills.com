@@ -1,0 +1,13 @@
+To do:
+
+Possible future improvements:
+* publish site source on github
+* Use http://tkareine.org/blog/2013/02/22/asset-bundling-with-jekyll/ to automatically run RequireJS optimizer
+* don't load full size images on front page on mobile, they can be much smaller (Page Speed Insight complains)
+* make post-page tags tab-like i.e. show active tag posts list below all tags
+* when clicking logo, expose a https://setofskills.com/ link
+* add URL state about tag expand-state of tags and posts
+* Use Compass for instead of manually CSS property prefixing
+* sanity check in IE8
+* add build instructions
+* add noscript-variants of lazyloaded imgs

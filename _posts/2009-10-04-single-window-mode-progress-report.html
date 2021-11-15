@@ -1,0 +1,18 @@
+---
+layout: post
+title: Single-window mode progress report
+date: '2009-10-04T12:46:00.005+02:00'
+author: Martin Nordholts
+tags: [gimp-development, ui-improvements]
+modified_time: '2012-05-20T10:53:39.667+02:00'
+blogger_id: tag:blogger.com,1999:blog-8217891901168839293.post-7411415016943398671
+blogger_orig_url: http://www.chromecode.com/2009/10/single-window-mode-progress-report.html
+cached_comment_count: 110
+---
+
+<img width="978" height="652" data-original="/img/gimp-single-window-mode-in-progress.jpg"
+     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAAC0lEQVQI12NgwAUAABoAASRETuUAAAAASUVORK5CYII=" />
+
+<p>When the news of the introduction of a <a href="http://www.mmiworks.net/eng/publications/2009/09/gimp-single-mode.html">single-window mode</a> in GIMP 2.8 hit the net it became clear what an incredible desire for something like this there was. The reactions have been overwhelmingly positive, and this  really helps to motivate you to hack on it. The news also revealed an interesting but previously rather anonymous group of people: multi-window zealots despising the idea of a single-window mode in their beloved multi-window application. I suspect they don't realize that single-window mode is going to be optional...</p>
+
+<p>I am happy to tell that the implementation of the single-window mode is progressing well. I have refactored the code to allow docks to be put inside an image window and <a href="http://gimpfoo.de/">Michael Natterer</a> have refactored the code to allow many images to be shown in a single image window. The code is already combined and pushed to <a href="http://git.gnome.org/cgit/gimp/log/">git master</a>  and you can get a very good feeling for how awesome the single-window mode is going to be by trying out the current code. Above is a screenshot of a live GIMP built from git master with 'Windows→Single-window mode' enabled. You can see the toolbox and dockable dialogs docked to the image window and the tabs for images in the image window at the top. Still a lot of things left to do though.</p>

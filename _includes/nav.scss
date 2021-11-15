@@ -1,0 +1,61 @@
+/*
+
+for f in _scss/*; do sass $f --style compressed > _includes/$(basename ${f%%.*}.min.css); done
+
+*/
+
+$nav-active-color: #49483e;
+
+nav {
+    margin-bottom: 60px;
+}
+
+.nav-entry {
+    padding: 5px 15px;
+    transition: background 0.4s;
+    border-bottom: 5px solid $nav-active-color;
+    border-radius: 2px;
+    line-height: 200%;
+}
+
+.nav-entry:hover {
+    background: darken($nav-active-color, 7%) !important;
+}
+
+.nav-entry a {
+    text-decoration: none;
+}
+
+.nav-entry.active {
+    background: $nav-active-color;
+}
+
+/* col-xs */
+.nav-entry {
+    margin: 0;
+    font-size: 24px; /* .h3 */
+}
+
+/* col-sm */
+@media (min-width : 768px) {
+    .nav-entry {
+        margin: 0 20px;
+        font-size: 30px; /* .h2 */
+    }
+}
+
+
+/* col-md */
+@media (min-width : 992px) {
+    .nav-entry {
+        font-size: 30px; /* .h2 */
+    }
+}
+
+/* col-lg */
+@media (min-width : 1200px) {
+    .nav-entry {
+        font-size: 36px; /* .h1 */
+    }
+}
+

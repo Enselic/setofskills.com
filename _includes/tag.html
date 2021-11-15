@@ -1,0 +1,1 @@
+<a class="tag post-list-header {% if include.tagCount > 0 %} google-tag-manager-expand-or-collapse-tag {% endif %}" data-tag-count="{{ include.tagCount }}" id="{{ include.tagName | slugify }}">{{ include.tagName }}</a> {% if include.tagCount > 0 %} <span class="tag-count"> × {{ include.tagCount }}</span><br/> {% endif %}

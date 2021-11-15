@@ -1,0 +1,27 @@
+---
+layout: default
+title: Martin "Enselic" Nordholts' blog and website
+tag_title: Tags
+by_year_title: Posts by year
+nav: Blog
+has_disqus_comment_count: true
+---
+
+{% for post in site.posts %}
+<article class="blog-post front-page">
+    <header>
+        <h2><a href="{{site.baseurl}}{{post.url}}">{{ post.title }}</a></h2>
+    	<h5 class="author-and-date">{{post.date|date:"%b %d, %Y"}} by {{post.author}}</h5>
+    </header>
+    
+    <section class="content collapsed fade-last-line">
+    	{{ post.content }}
+    </section>
+
+    <!-- There is a dependency from Google Tag Manaager to stuff prefixed with 'google-tag-manager'.
+         Don't change those unless you know what you're doing -->
+    <a class="google-tag-manager-read-more-button" id="{{ post.id | slugify }}">Read more</a><a data-disqus-identifier="{{ post.id }}" href="{{site.baseurl}}{{post.url}}#disqus_thread">{{ post.cached_comment_count }} Comment{% if post.cached_comment_count != 1 %}s{% endif %}
+	</a>
+
+</article>
+{% endfor %}

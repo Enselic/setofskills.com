@@ -1,0 +1,23 @@
+---
+layout: post
+title: Automatic tab style and removed tab title bar
+date: '2010-06-12T01:27:00.013+02:00'
+author: Martin Nordholts
+tags: [gimp-development, ui-improvements, life]
+modified_time: '2010-06-12T09:31:51.055+02:00'
+blogger_id: tag:blogger.com,1999:blog-8217891901168839293.post-5296835739351639672
+blogger_orig_url: http://www.chromecode.com/2010/06/automatic-tab-style-and-removed-tab.html
+cached_comment_count: 34
+---
+
+<img width="927" height="618" data-original="/img/gimp-auto-tab-style-no-tab-title-2010-06-12.jpg"
+     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAAC0lEQVQI12NgwAUAABoAASRETuUAAAAASUVORK5CYII=" alt="Illustration"/>
+
+<p>I currently have less time over for GIMP development than I used to have. Puss på dig Emma! ♡ :) Nevertheless, I've just landed two changes to the UI. The first one adds a new tab style to docks, the second one removes the rather space inefficient tab title bar.</p>
+
+
+<p>The new tab style is called 'Automatic' and makes the tabs in docks as big as possible given the available space. If you have one dockable dialog in a wide dock, the tab will be an icon and a title. If you have many dockables in a narrow dock, the tabs will be just icons. The Automatic tab mode is dynamic, resizing a dock will update the tabs in a dock live. This tab style is also the new default tab style.</p>
+
+<p>Following the Automatic tab style I could remove the tab title bars. The removed tab title bar had two purposes. Hosting the tab menu button and acting as a drag-and-drop handle when no tabs were present. The first has been addressed by moving the tab menu button up to the tabs and the second has been addressed by always showing tabs.</p>
+
+<p>Along with the removal of the docking bars a while back, the result is that GIMP has gotten a cleaner and more space efficient UI. There's a lot of things that could be further improved of course, but this is what I wanted to do for 2.8. And the single-window mode. Speaking of, I haven't had much time for that lately either, but I'm sure it'll all be fine eventually.</p>

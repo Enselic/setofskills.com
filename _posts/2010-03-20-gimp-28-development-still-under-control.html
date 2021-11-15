@@ -1,0 +1,22 @@
+---
+layout: post
+title: GIMP 2.8 development still under control
+date: '2010-03-20T13:57:00.004+01:00'
+author: Martin Nordholts
+tags: [gimp-development, ui-improvements, project-management]
+modified_time: '2010-03-20T15:39:46.640+01:00'
+blogger_id: tag:blogger.com,1999:blog-8217891901168839293.post-4255114644276086731
+blogger_orig_url: http://www.chromecode.com/2010/03/gimp-28-development-still-under-control.html
+cached_comment_count: 27
+---
+
+<img width="394" height="197" data-original="/img/gimp-hide-docks-2010-04-20.png"
+     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAC0lEQVQI12NggAIAAAkAAWMqFg0AAAAASUVORK5CYII=" alt="Hide docks image"/>
+
+<p>A while back I announced the creation of a schedule for GIMP 2.8 development. I've made sure to keep this schedule up to date, and after a bunch of initial adjustments such as postponing some feature and adding others, the schedule has now stabilized a bit. The estimated date for a release candidate is still in December 2010. Tracking progress with a schedule really helps you to feel in control of development. The 2.4 development cycle which I were around in the end of, and the 2.6 development cycle which I were fully part of, were more chaotic with no commitment to a delivery date. This is perfectly fine for many, but I prefer structured development.</p>
+
+<p>As far as development goes I have continued working on the UI in general and single-window mode in particular. There is now only one major thing missing before single-window mode is ready for some real usage, which is proper session management of the single-window mode. That is, it of course needs to be made possible to start up in single-window mode and the UI layout in single-window mode needs to be preserved. There are some quite big details to sort out here, so I'm basically waiting for Peter Sikking to find time to write a UI specification on how it should work.</p>
+
+<p>In terms of more concrete changes I have for example added a new menu item under the Windows menu labelled Hide docks. This makes the crucial feature to hide dock windows and docks with Tab discoverable, a feature most people don't know about but wish they knew sooner when you tell them about it. I've also made the setting preserved across GIMP sessions, so if you close GIMP with the docks hidden, they will remain hidden when you start GIMP the next time. Another change is that dock windows now only have the active dockables in the title, instead of all tabs, to avoid hugely long window titles. I would also like to take the opportunity to point out that there is a Recently Closed Docks sub menu under the Windows menu, even in 2.6, which contains dock windows you have closed, something many people don't seem to be aware of.</p>
+
+<p>I'll let that be the end of this general update. And sorry Fredrik for not making a post in February ;)</p>
