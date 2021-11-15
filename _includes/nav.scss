@@ -7,7 +7,7 @@ for f in _scss/*; do sass $f --style compressed > _includes/$(basename ${f%%.*}.
 $nav-active-color: #49483e;
 
 nav {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 
 .nav-entry {
