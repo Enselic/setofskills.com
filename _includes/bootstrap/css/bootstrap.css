@@ -217,7 +217,7 @@ body {
   font-size: 20px;
   line-height: 1.42857143;
   color: #ffffff;
-  background-color: #272822;
+  background-color: #000000;
 }
 input,
 button,
@@ -258,7 +258,7 @@ img {
 .img-thumbnail {
   padding: 4px;
   line-height: 1.42857143;
-  background-color: #272822;
+  background-color: #000000;
   border: 1px solid #dddddd;
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
