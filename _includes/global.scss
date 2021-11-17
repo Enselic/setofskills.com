@@ -17,3 +17,8 @@ img[data-original] {
     max-width: 100%;
     height: auto;	
 }
+
+/* From https://stackoverflow.com/a/12582621/287761 */
+html {
+    overflow-y: scroll;
+}
