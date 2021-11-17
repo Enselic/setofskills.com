@@ -16,27 +16,15 @@ permalink: pretty
 plugins_dir: _plugins
 
 # Exclude metadata and development time dependencies (like Grunt plugins)
-exclude: [README.md, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, build.js, node_modules, 'chromecode.sublime-project', 'chromecode.sublime-workspace']
+exclude: [README.md, build.js, node_modules]
 
 defaults:
   -
     scope:
       path: ""
-      type: "posts"
     values:
-      nav: "Blog"
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      tag_title: Tags
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      by_year_title: Posts by year
+      nav: Blog # To make Blog button active when reading posts
+      layout: "default"
 
 sass:
   style: compressed
